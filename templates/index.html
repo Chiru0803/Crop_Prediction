@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Recommendation System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image:url("static/Back.jpg");
+	        background-repeat: no-repeat;
+	        background-size:100%;
+	        background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            color:white;
+            //background-image:url("static/Back.jpg");
+            //background-color:#70c169;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 80px rgba(0,0, 0, 1.5);
+            width:800px;
+
+        }
+
+        h1 {
+	        color:white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width:760px;
+            height: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            width:780px;
+            height: 40px;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crop Recommendation System  </h1>
+        <form method="POST" action="/">
+            <label for="nitrogen">Nitrogen:</label>
+            <input type="text" name="nitrogen" required>
+
+            <label for="temperature">Temperature:</label>
+            <input type="text" name="temperature" required>
+
+            <label for="rainfall">Rainfall:</label>
+            <input type="text" name="rainfall" required>
+
+            <label for="humidity">Humidity:</label>
+            <input type="text" name="humidity" required>
+
+            <label for="ph">PH:</label>
+            <input type="text" name="ph" required><br>
+
+            <input type="submit" value="Recommend Crop">
+        </form>
+
+        {% if crop_prediction %}
+        <h2>Recommended Crop: {{ crop_prediction }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
